@@ -1,0 +1,19 @@
+apiVersion: v1
+appVersion: v2.1.0
+name: mhs-monitoring-loki
+version: 0.1.0
+type: application
+
+dependencies:
+- condition: loki.enabled
+  name: loki
+  repository: https://grafana.github.io/helm-charts
+  version: ^2.3.0
+- condition: promtail.enabled
+  name: promtail
+  repository: https://grafana.github.io/helm-charts
+  version: ^2.2.0
+name: loki-stack
+sources:
+- https://github.com/grafana/loki
+version: 2.4.1
